@@ -1,0 +1,9 @@
+read library -Both -sensitive -Verilog ~/CBDC/LIB/CIC/Verilog/umc18.v
+read design ../02/mult16p3_gate.v -Verilog -Golden -sensitive
+read design ../04/mult16p3_gate_scan.v -Verilog -Revised -sensitive
+set system mode lec
+
+set system mode setup
+add pin constraints 0 test_se -revised
+
+set system mode lec
