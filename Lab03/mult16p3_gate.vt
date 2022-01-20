@@ -1,0 +1,63 @@
+`timescale 1ns/10ps
+
+module test;
+
+  reg [15:0] a;
+  reg [15:0] b;
+  reg        clk;
+  wire[31:0] p;
+
+  integer i, error;
+  reg [31:0] prod0, prod1, prod2, prod3;
+
+  reg [63:0] pattern [2999:0];
+  reg [63:0] t;
+
+  mult16p3 U0 (.a(a), .b(b), .clk(clk), .p(p));
+
+
+  initial
+        $sdf_annotate("mult16p3.sdf", U0, , "mult16p3_sdf.log");
+
+
+
+  initial
+        begin
+          clk = 1'b0;
+          forever
+            #2.5 clk = ~clk;
+        end
+
+  initial
+        begin
+          $readmemb("../01/mult16p3.dat", pattern);
+          error = 0;
+          for (i=1; i<=3000; i=i+1)
+            begin
+                t = pattern[i];
+                @(negedge clk);
+                a = t[63:48];
+                b = t[47:32];
+                prod3 =prod2;
+                prod2 =prod1;
+                prod1 =prod0;
+                prod0 =t[31:0];
+                @(posedge clk);
+                if (p !== prod3)
+                  begin
+                    $write("ERROR: %d != %d\n", p, prod3);
+                    error = error + 1;
+                end
+        end
+
+        $write("Error Count: %d / %d\n", error, i-1);
+        @(posedge clk);
+        $finish;
+  end
+
+  initial
+        begin
+          $dumpfile("mult16p3_gate.vcd");
+          $dumpvars(0, test);
+        end
+endmodule
