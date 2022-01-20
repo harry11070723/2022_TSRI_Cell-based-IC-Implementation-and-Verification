@@ -1,0 +1,59 @@
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : mult16p3
+Version: Q-2019.12
+Date   : Tue Jan 18 16:50:23 2022
+****************************************
+
+Operating Conditions: typical   Library: typical
+Wire Load Model Mode: segmented
+
+  Startpoint: a_reg2_reg_3_
+              (rising edge-triggered flip-flop)
+  Endpoint: p[29] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mult16p3           UMC18_Conservative    typical
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  a_reg2_reg_3_/CK (SDFFHQXL)              0.00       0.00 r
+  a_reg2_reg_3_/Q (SDFFHQXL)               0.53       0.53 r
+  U1524/Y (NAND2XL)                        0.19       0.72 f
+  U1628/Y (AND2X1)                         0.24       0.96 f
+  U1627/Y (OAI22X1)                        0.21       1.17 r
+  U1685/Y (XNOR2X1)                        0.25       1.42 r
+  U1684/Y (XOR2X1)                         0.25       1.66 r
+  U1205/Y (AND2X1)                         0.20       1.87 r
+  U1402/Y (OAI2BB2X4)                      0.08       1.94 f
+  U1578/Y (INVX2)                          0.06       2.01 r
+  U1296/Y (NAND2X2)                        0.05       2.05 f
+  U1366/Y (OAI2BB2X4)                      0.17       2.22 f
+  U1330/Y (OAI2BB2X4)                      0.12       2.34 r
+  U1206/Y (NOR2X2)                         0.05       2.38 f
+  U1404/Y (OR2X4)                          0.16       2.54 f
+  U1376/Y (NOR2X4)                         0.07       2.61 r
+  U1377/Y (OR2X4)                          0.12       2.73 r
+  U1297/Y (OAI2BB2X4)                      0.06       2.79 f
+  U1329/Y (OR2X4)                          0.14       2.94 f
+  U1292/Y (NAND2X4)                        0.07       3.01 r
+  U1267/Y (XNOR2X2)                        0.16       3.17 r
+  U1240/Y (XOR2X1)                         0.21       3.38 r
+  add_18_U1_26/CO (ADDFHX4)                0.31       3.69 r
+  U1354/Y (NAND2X4)                        0.05       3.74 f
+  U1356/Y (NAND3X4)                        0.13       3.87 r
+  U1261/Y (AND2X1)                         0.19       4.06 r
+  U1260/Y (XOR2X4)                         0.16       4.22 r
+  p[29] (out)                              0.00       4.22 r
+  data arrival time                                   4.22
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1
