@@ -1,0 +1,22 @@
+set target_library [list ~/CBDC/LIB/CIC/SynopsysDC/typical.db]
+set link_library [list ~/CBDC/LIB/CIC/SynopsysDC/typical.db]
+read_file -format verilog -netlist ../02/mult16p3_gate.v
+current_design mult16p3
+link
+redirect area.rpt { report_area }
+redirect timing.rpt { report_timing }
+set test_default_scan_style multiplexed_flip_flop
+report_constraint -all_violators
+create_test_protocol -infer_clock -infer_asynch
+dft_drc
+set_scan_configuration -chain_count 1
+preview_dft
+insert_dft
+report_constraint -all_violators
+dft_drc
+dft_drc -coverage_estimate
+report_scan_path -view existing -chain all
+redirect area_scan.rpt { report_area }
+redirect timing_scan.rpt { report_timing }
+write -format verilog -hierarchy -output mult16p3_gate_scan.v
+exit
