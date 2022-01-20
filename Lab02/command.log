@@ -1,0 +1,39 @@
+set search_path [concat [list ~/CBDC/LIB/CIC/SynopsysDC] $search_path]
+define_design_lib WORK -path ./work
+set target_library [list typical.db]]
+set target_library [list typical.db]
+set symbol_library [list umc18.sdb genric.sdb class.sdb]
+set synthetic_library [list dw_foundation.sldb]
+set link_library [list typical.db dw_foundation.sldb]
+analyze -format verilog -library WORK [list ../01/mult16p3.v]
+elaborate mutl16p3 -arch verilog -library WORK
+elaborate mult16p3 -arch verilog -library WORK
+current_design mult16p3
+compile -ungroup_all
+report_area
+report_timing -path full -delay max -max_path 1 -nworst 1
+report_reference
+create_clock -name clk -period 5 -waveform [list 0 2.5] [list clk]
+set_clock_uncertainty -setup 0.5 clk
+set_clock_uncertainty -hold 0.5 clk
+set_output_delay 0.5 -clock clk [all_outputs]
+set_dont_touch_network [find clock clk]
+set_driving_cell -lib_cell INVX1 [all_inputs]
+set_drive 0 [list clk]
+set_fix_hold [find clock clk]
+report_clock
+set_load 0.075 [all_outputs]
+set_max_transition 0.5 [find design mult16p3]
+set_wire_load_model -name UMC18_Consevative
+set_wire_load_model -name UMC18_Conservative
+set_fix_multiple_port_nets -feedthroughs
+compile -map_effort high
+report_area
+report_timing -path full -delay max -max_path 1 -nworst 1
+report_reference
+change_names -rule verilog -verbose -hierarchy
+set verilogout_no_tri TRUE
+set verilogout_signal_bit FALSE
+set verilogout_show_unconnected_pins TRUE
+write -format verilog -hierarchy -output mult16p3_gate.v
+quit
