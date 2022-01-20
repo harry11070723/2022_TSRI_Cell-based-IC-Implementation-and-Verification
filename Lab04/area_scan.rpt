@@ -1,0 +1,30 @@
+****************************************
+Report : area
+Design : mult16p3
+Version: Q-2019.12
+Date   : Tue Jan 18 16:50:10 2022
+****************************************
+
+Library(s) Used:
+
+    typical (File: /users/student/TR/cbdc30/CBDC/LIB/CIC/SynopsysDC/typical.db)
+
+Number of ports:                           67
+Number of nets:                          1656
+Number of cells:                         1600
+Number of combinational cells:           1472
+Number of sequential cells:               128
+Number of macros/black boxes:               0
+Number of buf/inv:                        307
+Number of references:                      93
+
+Combinational area:              29704.752234
+Buf/Inv area:                     4167.979259
+Noncombinational area:            8814.960052
+Macro/Black Box area:                0.000000
+Net Interconnect area:              14.627109
+
+Total cell area:                 38519.712287
+Total area:                      38534.339396
+1
+~
