@@ -1,0 +1,13 @@
+set power_enable_analysis TRUE
+set power_analysis_mode time_based
+set search_path {. ~/CBDC/LIB/CIC/SynopsysDC}
+set link_library {* typical.db}
+read_verilog ../02/mult16p3_gate.v
+current_design mult16p3
+link
+read_vcd -strip_path test/U0 mult16p3_gate.vcd
+read_vcd -strip_path test/U0 mult16p3_gate.vcd
+set_power_analysis_options -waveform_format out -waveform_output vcd
+update_power
+report_power
+quit
