@@ -1,0 +1,66 @@
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : mult16p3
+Version: Q-2019.12
+Date   : Tue Jan 18 16:43:33 2022
+****************************************
+
+Operating Conditions: typical   Library: typical
+Wire Load Model Mode: segmented
+
+  Startpoint: b_reg2_reg_1_
+              (rising edge-triggered flip-flop)
+  Endpoint: p[30] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  mult16p3           UMC18_Conservative    typical
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  b_reg2_reg_1_/CK (DFFHQX4)               0.00       0.00 r
+  b_reg2_reg_1_/Q (DFFHQX4)                0.14       0.14 f
+  U1163/Y (BUFX20)                         0.10       0.25 f
+  U1178/Y (NAND2X2)                        0.10       0.35 r
+  U1289/Y (XOR2X2)                         0.19       0.54 r
+  U1311/Y (XOR2X2)                         0.17       0.71 f
+  U1369/Y (AND2X1)                         0.16       0.87 f
+  U1259/Y (OR2X4)                          0.14       1.01 f
+  U1322/Y (NAND2BX4)                       0.06       1.07 r
+  U1262/Y (OR2X4)                          0.10       1.17 r
+  U1139/Y (NAND2X4)                        0.04       1.21 f
+  U1264/Y (OR2X4)                          0.15       1.36 f
+  U1268/Y (NAND2X4)                        0.06       1.42 r
+  U1258/Y (NAND2X2)                        0.04       1.46 f
+  U1434/Y (AND2X4)                         0.13       1.60 f
+  U1402/Y (OAI2BB2X4)                      0.11       1.70 r
+  U1254/Y (BUFX3)                          0.11       1.81 r
+  U1253/Y (INVX4)                          0.04       1.84 f
+  U1366/Y (OAI2BB2X4)                      0.11       1.95 r
+  U1330/Y (OAI2BB2X4)                      0.07       2.02 f
+  U1206/Y (NOR2X2)                         0.08       2.10 r
+  U1404/Y (OR2X4)                          0.12       2.23 r
+  U1376/Y (NOR2X4)                         0.04       2.27 f
+  U1377/Y (OR2X4)                          0.16       2.43 f
+  U1297/Y (OAI2BB2X4)                      0.11       2.54 r
+  U1329/Y (OR2X4)                          0.11       2.64 r
+  U1292/Y (NAND2X4)                        0.05       2.69 f
+  U1272/Y (AOI2BB2X4)                      0.16       2.86 f
+  U1271/Y (OAI22X4)                        0.14       3.00 r
+  U1321/Y (OAI2BB2X4)                      0.15       3.15 r
+  U1146/Y (XNOR2X2)                        0.18       3.34 r
+  U1614/Y (XOR2X1)                         0.19       3.53 f
+  U1210/Y (NAND3BX2)                       0.14       3.67 f
+  U1209/Y (INVX4)                          0.08       3.75 r
+  U1266/Y (CLKINVX2)                       0.08       3.82 f
+  U1252/Y (NAND2X4)                        0.07       3.89 r
+  U1362/Y (NAND2X4)                        0.03       3.92 f
+  p[30] (out)                              0.00       3.92 f
+  data arrival time                                   3.92
+  -----------------------------------------------------------
+  (Path is unconstrained)
