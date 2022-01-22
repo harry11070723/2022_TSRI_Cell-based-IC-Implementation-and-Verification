@@ -1,2 +1,2 @@
 Design Compiler
-藉由DC synthesis circuit
+此command log 僅紀錄如何藉由DC synthesis RTL轉成Gate-level circuit
