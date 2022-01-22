@@ -1,1 +1,2 @@
-此command為DFT compiler步驟，藉由DFT產生timing & 
+此command為DFT compiler步驟，藉由DFT產生timing & area report紀錄scan chain前後之結果是否有最佳化
+目的為增加Netlist的可測試性
