@@ -1,1 +1,2 @@
-
+此為一個16 bit 3-stage multipuler的RTL code
+並寫入一pattern.v 來模擬waveform是否符合功能性
