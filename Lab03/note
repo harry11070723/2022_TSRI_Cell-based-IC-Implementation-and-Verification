@@ -1,1 +1,5 @@
-
+此Lab步驟和產生檔案較繁雜，需要特別小心處理!!!
+DC合成後會產生gate-level 的.v檔 --> mult16p3_gate.v
+寫出一testbench的檔案--> mult16p3_gate.vt
+並進行Simulation 產生waveform並觀察是否有誤!
+亦將會產生一SDF檔 mult16p3.sdf (判斷Verilog輸出是否一致)
