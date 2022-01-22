@@ -1,1 +1,2 @@
-LEC verify function是否一致
+Lab05使用lec &呼叫LEC並使用此處command log
+逐步verify function是否一致，若不一致再找出bug修正
